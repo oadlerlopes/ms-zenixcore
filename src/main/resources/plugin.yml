@@ -1,0 +1,6 @@
+main: ${project.groupId}.bukkit.${project.name}
+name: ${project.name}
+description: ${project.description}
+version: ${project.version}
+authors: [${project.organization.name}]
+website: ${project.url}

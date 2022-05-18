@@ -1,0 +1,73 @@
+package br.com.zenix.core.plugin.data.handler.type;
+
+import java.util.Arrays;
+
+public enum DataType {
+
+	HG_KILL(1),
+	HG_DEATH(2),
+	HG_KILLSTREAK(3),
+	HG_MOST_KILLSTREAK(4),
+	HG_WINS(5),
+	PVP_KILL(6),
+	PVP_DEATH(7),
+	PVP_WIN(8),
+	PVP_LOSE(9),
+	PVP_KILLSTREAK(10),
+	PVP_MOST_KILLSTREAK(11),
+	GLOBAL_XP(12),
+	GLOBAL_COINS(13),
+	CRATE_DIAMOND(14),
+	CRATE_GOLD(15),
+	CRATE_SILVER(16),
+	CRATE_COAL(17),
+	KEY(18),
+	PRACTICE_KILL(19),
+	PRACTICE_DEATH(20),
+	PRACTICE_ELO(21),
+	PRACTICE_KS(41),
+	PRACTICE_SOLO_MATCHES(42),
+	PRACTICE_RANKED_WINS(43),
+	PRACTICE_RANKED_LOSSES(44),
+	PRACTICE_UNRANKED_WINS(45),
+	PRACTICE_UNRANKED_LOSSES(46),
+	LANG(22),
+	GLADIATOR_WIN(23),
+	GLADIATOR_LOSE(24),
+	GLADIATOR_KILLSTREAK(25),
+	GLADIATOR_MOST_KILLSTREAK(27),
+	DOUBLECOINS_VALUE(28),
+	DOUBLECOINS_ACTIVE(29),
+	DOUBLECOINS_END(30),
+	DOUBLECOINS_START(31),
+	TRIPLECOINS_VALUE(32),
+	TRIPLECOINS_ACTIVE(33),
+	TRIPLECOINS_END(34),
+	TRIPLECOINS_START(35),
+	CUP_GROUP(36),
+	SKYWARS_KILLS(37),
+	SKYWARS_DEATHS(38),
+	SKYWARS_WINS(39),
+	SKYWARS_ELO(40),
+	CLAN_KILL(50),
+	CLAN_DEATH(51),
+	CLAN_WINS(52),
+	CLAN_XP(53),
+	CLAN_ELO(54);
+
+	private static final DataType[] values = values();
+	private final int id;
+
+	private DataType(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public static DataType getDataType(int id) {
+		return Arrays.asList(values).stream().filter(data -> data.id == id).findFirst().orElse(null);
+	}
+
+}

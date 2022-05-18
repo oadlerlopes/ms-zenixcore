@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="core" default="all">
+  
+  
+  <property file="core.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_cglib:cglib-nodep:3.2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/cglib/cglib-nodep/3.2.5/cglib-nodep-3.2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.comphenix.executors:bukkitexecutors:1.1-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/comphenix/executors/BukkitExecutors/1.1-SNAPSHOT/BukkitExecutors-1.1-20170429.151522-2.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.comphenix.protocol:protocollib-api:4.3.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/comphenix/protocol/ProtocolLib-API/4.3.0/ProtocolLib-API-4.3.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.code.gson:gson:2.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.google.guava:guava:18.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/guava/guava/18.0/guava-18.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-buffer:4.0.33.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-buffer/4.0.33.Final/netty-buffer-4.0.33.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-codec:4.0.33.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-codec/4.0.33.Final/netty-codec-4.0.33.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-common:4.0.33.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-common/4.0.33.Final/netty-common-4.0.33.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.netty:netty-transport:4.0.33.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/netty/netty-transport/4.0.33.Final/netty-transport-4.0.33.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-api:1.8-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-api/1.8-SNAPSHOT/bungeecord-api-1.8-20160221.214655-126.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-chat:1.8-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-chat/1.8-SNAPSHOT/bungeecord-chat-1.8-20160221.214602-128.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-config:1.8-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-config/1.8-SNAPSHOT/bungeecord-config-1.8-20160221.214615-126.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-event:1.8-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-event/1.8-SNAPSHOT/bungeecord-event-1.8-20160221.214626-126.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.md-5:bungeecord-protocol:1.8-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/md-5/bungeecord-protocol/1.8-SNAPSHOT/bungeecord-protocol-1.8-20160221.214639-126.jar"/>
+  </path>
+  
+  <path id="library.maven:_net.sf.trove4j:trove4j:3.0.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.github.paperspigot:paperspigot-api:1.7.10-r0.1-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/github/paperspigot/paperspigot-api/1.7.10-R0.1-SNAPSHOT/paperspigot-api-1.7.10-R0.1-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.github.paperspigot:paperspigot:1.7.10-r0.1-snapshot.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/github/paperspigot/paperspigot/1.7.10-R0.1-SNAPSHOT/paperspigot-1.7.10-R0.1-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.twitter4j:twitter4j-core:4.0.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/twitter4j/twitter4j-core/4.0.6/twitter4j-core-4.0.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.yaml:snakeyaml:1.14.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/yaml/snakeyaml/1.14/snakeyaml-1.14.jar"/>
+  </path>
+  
+  <path id="library.maven:_redis.clients:jedis:2.9.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/redis/clients/jedis/2.9.0/jedis-2.9.0.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="jgoodies-forms.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_core.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.core" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.core" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

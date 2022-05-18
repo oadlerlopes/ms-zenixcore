@@ -1,0 +1,12 @@
+type: hg
+debug: false
+database-connection:
+    address: localhost
+    port: 3306
+    username: root
+    password: 
+    schema: zenix
+redis-connection:
+    address: localhost
+    port: 6379
+    password: 

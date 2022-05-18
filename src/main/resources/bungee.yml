@@ -1,0 +1,6 @@
+main: ${project.groupId}.proxy.${project.name}
+name: ${project.name}
+description: ${project.description}
+version: ${project.version}
+author: ${project.organization.name}
+website: ${project.url}
